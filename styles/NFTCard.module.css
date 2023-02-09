@@ -46,7 +46,7 @@
 }
 
 /* Style for the NFT cards */
-.nft-cards {
+.nftcards {
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: 20px;
@@ -57,7 +57,7 @@
 }
 
 /* Style for each individual NFT card */
-.nft-card {
+.nftcard {
 	width: 20%;
 	padding: 10px;
 	background-color: lightgray;
