@@ -1,41 +1,28 @@
-//import styles from '../styles/NFTCard.module.css';
+import styles from '../styles/NFTCard.module.css';
 import { NFTCard } from '../components/nftCard';
-import { useState, useEffect } from 'react';
+import { useFetchNFTs } from '../pages/api/useFetchNFTs';
 
 const Home = () => {
-	const [NFTs, setNFTs] = useState([]);
-
-	useEffect(() => {
-		fetchNFTs();
-	}, []);
-
-	// Fetches all NFTs in a collection
-	const fetchNFTs = async () => {
-		var requestOptions = {
-			method: 'GET',
-		};
-		const api_key = process.env.NEXT_PUBLIC_KEY;
-		const baseURL = `https://eth-mainnet.g.alchemy.com/v2/${api_key}/getNFTsForCollection/`;
-		const fetchURL = `${baseURL}?contractAddress=0x231EDa2D0E36E5254515B7625D1201f7b4617cf4&withMetadata=${'true'}`;
-		const nfts = await fetch(fetchURL, requestOptions).then((data) =>
-			data.json()
-		);
-		if (nfts) {
-			console.log('NFTs in collection:', nfts);
-			setNFTs(nfts.nfts);
-		}
-	};
+	const NFTs = useFetchNFTs();
 
 	return (
-		<div>
-			<button className='btn btn-primary'>Hello World!</button>
-			<div>
+		<section className={styles.container}>
+			<div className={styles.nftcards}>
 				{NFTs.length &&
-					NFTs.map((nft) => {
-						return <NFTCard nft={nft}></NFTCard>;
+					NFTs.map((nft, index) => {
+						const description = nft.metadata.description
+							? nft.metadata.description
+							: 'No description available';
+						return (
+							<NFTCard
+								key={index}
+								nft={nft}
+								description={description}
+							></NFTCard>
+						);
 					})}
 			</div>
-		</div>
+		</section>
 	);
 };
 

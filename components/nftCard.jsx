@@ -1,23 +1,26 @@
-export const NFTCard = ({ nft }) => {
-  return (
-    <div className="w-1/4 flex flex-col ">
-      <div className="rounded-md">
-        <img
-          className="object-cover h-128 w-full rounded-t-md"
-          src={nft.media[0].gateway}
-        ></img>
-      </div>
-      <div className="flex flex-col y-gap-2 px-2 py-3 bg-slate-100 rounded-b-md h-110 ">
-        <div className="">
-          <h2 className="text-xl text-gray-800">{nft.title}</h2>
-          <p className="text-gray-600">Id: {nft.id.tokenId}</p>
-          <p className="text-gray-600">{nft.contract.address}</p>
-        </div>
+import ReactMarkdown from 'react-markdown';
 
-        <div className="flex-grow mt-2">
-          <p className="text-gray-600">{nft.description}</p>
-        </div>
-      </div>
-    </div>
-  );
+const NFTCard = ({ nft, description }) => {
+	return (
+		<div className='card card-image-cover'>
+			<img src={nft.media[0].gateway} alt={nft.metadata.name} />
+			<div className='card-body'>
+				<h2 className='card-header'>{nft.metadata.name}</h2>
+				<div className='text-content'>
+					<ReactMarkdown>{description}</ReactMarkdown>
+				</div>
+				<div className='text-content2'>
+					<ul>
+						{nft.metadata.attributes.map((attribute, index) => (
+							<li key={index}>
+								{attribute.trait_type}: {attribute.value}
+							</li>
+						))}
+					</ul>
+				</div>
+			</div>
+		</div>
+	);
 };
+
+export { NFTCard };
