@@ -1,9 +1,4 @@
-# Next.js + Tailwind CSS Example
+# README
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
-
-## How to use
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+//uninstalled tailwind & ripple
+//installed sass

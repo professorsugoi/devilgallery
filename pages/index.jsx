@@ -1,28 +1,46 @@
-import styles from '../styles/NFTCard.module.css';
-import { NFTCard } from '../components/nftCard';
+import React, { useState, useEffect } from 'react';
+import styles from '../styles/Card.module.scss';
 import { useFetchNFTs } from '../pages/api/useFetchNFTs';
+import { NFTCard } from '../components/nftCard';
+import Pagination from '../components/pagination';
 
 const Home = () => {
 	const NFTs = useFetchNFTs();
 
+	// const for nftcard pagination
+	const [currentPage, setCurrentPage] = useState(1);
+	const [cardsPerPage] = useState(20);
+
+	const indexOfLastCard = currentPage * cardsPerPage;
+	const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+	const currentNFTs = NFTs.slice(indexOfFirstCard, indexOfLastCard);
+
+	const pageNumbers = [];
+	for (let i = 1; i <= Math.ceil(NFTs.length / cardsPerPage); i++) {
+		pageNumbers.push(i);
+	}
+
 	return (
-		<section className={styles.container}>
-			<div className={styles.nftcards}>
-				{NFTs.length &&
-					NFTs.map((nft, index) => {
-						const description = nft.metadata.description
-							? nft.metadata.description
-							: 'No description available';
-						return (
-							<NFTCard
-								key={index}
-								nft={nft}
-								description={description}
-							></NFTCard>
-						);
-					})}
+		<div id='root' className={styles.container}>
+			<div className={styles.layout}></div>
+			<div className={styles.cardcontainer}>
+				{currentNFTs.map((nft, index) => {
+					const description = nft.metadata.description;
+					return (
+						<NFTCard key={index} nft={nft} description={description}></NFTCard>
+					);
+				})}
 			</div>
-		</section>
+			<div className={styles.paginationcontainer}>
+				<div className={styles.pagination}>
+					<Pagination
+						currentPage={currentPage}
+						setCurrentPage={setCurrentPage}
+						pageNumbers={pageNumbers}
+					/>
+				</div>
+			</div>
+		</div>
 	);
 };
 

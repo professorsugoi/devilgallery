@@ -1,26 +1,29 @@
 import ReactMarkdown from 'react-markdown';
+import styles from '../styles/Card.module.scss';
 
 const NFTCard = ({ nft, description }) => {
 	return (
-		<div className='card card-image-cover'>
-			<img src={nft.media[0].gateway} alt={nft.metadata.name} />
-			<div className='card-body'>
-				<h2 className='card-header'>{nft.metadata.name}</h2>
-				<div className='text-content'>
+		<div className={styles.card}>
+			<div className={styles['card-header']}>
+				<img src={nft.media[0].gateway} alt={nft.metadata.name} />
+			</div>
+			<div className={styles['card-body']}>
+				<h3>{nft.metadata.name}</h3>
+				<div className={styles['tag-container']}>
+					{nft.metadata.attributes.map((attribute, index) => (
+						<div
+							key={index}
+							className={`${styles.tag} ${styles['tag-purple']}`}
+						>
+							{attribute.trait_type}: {attribute.value}
+						</div>
+					))}
+				</div>
+				<span className={styles.description}>
 					<ReactMarkdown>{description}</ReactMarkdown>
-				</div>
-				<div className='text-content2'>
-					<ul>
-						{nft.metadata.attributes.map((attribute, index) => (
-							<li key={index}>
-								{attribute.trait_type}: {attribute.value}
-							</li>
-						))}
-					</ul>
-				</div>
+				</span>
 			</div>
 		</div>
 	);
 };
-
 export { NFTCard };
