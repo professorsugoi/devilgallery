@@ -1,0 +1,127 @@
+/* Master layout for the page */
+.container {
+	display: grid;
+	grid-template-columns: 5em 1fr 5em;
+	grid-template-rows: repeat(2, auto) 5em;
+	grid-gap: 1em 1em;
+}
+
+.layout {
+	grid-area: 1 / 1 / 4 / 4;
+}
+
+.body {
+	grid-area: b;
+}
+
+/* Parent container for the cards */
+.cardcontainer {
+	grid-area: 1 / 2 / 3 / 4;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	margin-top: 6rem;
+
+	/* Style for the individual cards */
+	.card {
+		grid-area: 1 / 2 / 3 / 4;
+		place-self: stretch stretch;
+		flex: 0 1 auto;
+		width: 100%;
+		max-width: 20rem;
+		height: 35rem;
+		margin: 10px;
+		overflow: hidden;
+		border-radius: 10px;
+		background-color: #2a2a2b;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		transition: 0.5s ease;
+
+		.card-header img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+		.card-body {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: flex-start;
+			padding: 20px 25px 20px;
+
+			h3 {
+				font-size: 20px;
+				margin: 0 0 15px;
+			}
+
+			.tag-container {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				align-items: flex-end;
+				margin-bottom: 15px;
+				.tag {
+					border-radius: 30px;
+					font-size: 10px;
+					margin: 0 5px 5px 0;
+					color: #fff;
+					padding: 6px 10px 6px 10px;
+					text-transform: uppercase;
+					cursor: pointer;
+				}
+				.tag-teal {
+					background-color: #23b3cf;
+				}
+				.tag-purple {
+					background-color: #5e76bf;
+				}
+				.tag-pink {
+					background-color: #cd5b9f;
+				}
+			}
+
+			p {
+				font-size: 14px;
+				color: #cccccc;
+				margin: 0 0 10px;
+			}
+		}
+	}
+}
+
+/* style override for react-markdown */
+.description {
+	font-family: 'Inconsolata', sans-serif;
+}
+
+.description > h1,
+.description > h2,
+.description > h3 {
+	font-size: inherit;
+	font-weight: inherit;
+	color: inherit;
+}
+
+/* style for pagination */
+.paginationcontainer {
+	grid-area: 3 / 2 / 4 / 4;
+}
+
+.pagination {
+	grid-area: 3 / 2 / 4 / 4;
+	text-align: center;
+	margin: 10px;
+}
+
+/* Media queries */
+@media (min-width: 720px) {
+	.nftcards {
+		width: 50%;
+	}
+}
+
+@media (min-width: 1024px) {
+	.nftcards {
+		width: 25%;
+	}
+}
