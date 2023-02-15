@@ -30,21 +30,21 @@ const Navbar = ({}) => {
 
 	return (
 		<nav ref={nav}>
-			<a href='https://boring.samalander.dev/' className='logo'>
+			<a href='/' className='logo'>
 				<h2>DEVILISH</h2>
 			</a>
 			<div className='navLinks'>
-				<Link href='#'>
+				<Link href='/about'>
 					<span>About</span>
 				</Link>
-				<Link href='#'>
-					<span>Discord</span>
+				<Link href='https://plasticiv.com/'>
+					<span>Tumblr</span>
 				</Link>
-				<Link href='#'>
+				<Link href='https://twitter.com/professorSugoi/'>
 					<span>Twitter</span>
 				</Link>
-				<Link href='#'>
-					<span>Opensea</span>
+				<Link href='https://github.com/professorsugoi/'>
+					<span>Github</span>
 				</Link>
 			</div>
 		</nav>
