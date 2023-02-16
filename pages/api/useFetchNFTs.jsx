@@ -30,7 +30,7 @@ const useFetchNFTs = ({ APIKEY }) => {
 export async function getStaticProps() {
 	return {
 		props: {
-			APIKEY: process.env.NEXT_KEY,
+			APIKEY: process.env.APIKEY,
 		},
 	};
 }
