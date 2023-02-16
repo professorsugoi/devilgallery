@@ -30,7 +30,7 @@ const Navbar = ({}) => {
 
 	return (
 		<nav ref={nav}>
-			<a href='/' className='logo'>
+			<a href='#' className='logo'>
 				<h2>DEVILISH</h2>
 			</a>
 			<div className='navLinks'>

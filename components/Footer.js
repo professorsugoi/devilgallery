@@ -1,7 +1,7 @@
 const Footer = ({}) => {
 	return (
 		<footer>
-			<a href='/' className='logo'>
+			<a href='#' className='logo'>
 				<h2>DEVILISH</h2>
 			</a>
 			<a
