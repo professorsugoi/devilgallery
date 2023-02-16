@@ -1,11 +1,13 @@
 # README
 
-Sugoi learns to code ヽ(・∀・)ﾉ ! :sparkles:  
-**Deployment is currently broken** :exclamation: _(see to-do)_
+Sugoi learns to code ヽ(・∀・)ﾉ ! :sparkles:
 
 ### TO DO
 
 - Optimize load times / clean up spaghetti
+- Fix longer text on card descriptions
+- Better pagination buttons
+- Pointer-events for hover delay on cards (hook for after load ?)
 - Create variables for collections
 - Smaller commits going forward . .
 
