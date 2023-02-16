@@ -4,8 +4,8 @@ import { useFetchNFTs } from '../pages/api/useFetchNFTs';
 import { NFTCard } from '../components/nftCard';
 import Pagination from '../components/pagination';
 
-const Home = () => {
-	const NFTs = useFetchNFTs();
+const Home = ({ APIKEY }) => {
+	const NFTs = useFetchNFTs({ APIKEY });
 
 	// const for nftcard pagination
 	const [currentPage, setCurrentPage] = useState(1);
