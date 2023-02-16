@@ -36,13 +36,12 @@ $accent: #ff65ff;
 .info {
 	display: flex;
 	justify-content: center;
-	max-width: 35rem;
-	max-height: 10rem;
+	max-width: 45rem;
 	padding: 5rem;
 
 	@for $i from 1 through 50 {
 		&:nth-of-type(#{$i}) {
-			@include fade-down(1.25 + $i/3 + s, 1s);
+			@include fade-down(0.5 + $i/3 + s, 1s);
 		}
 	}
 
