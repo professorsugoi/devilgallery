@@ -5,7 +5,7 @@ Sugoi learns to code ヽ(・∀・)ﾉ ! :sparkles:
 
 ### TO DO
 
-- Use getStaticProps for components and process.env variables.
+- Optimize load times / clean up spaghetti
 - Create variables for collections
 - Smaller commits going forward . .
 
