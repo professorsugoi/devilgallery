@@ -7,7 +7,7 @@ import Pagination from '../components/pagination';
 const Home = ({ APIKEY }) => {
 	const NFTs = useFetchNFTs({ APIKEY });
 
-	// const for nftcard pagination
+	// const for cards pagination
 	const [currentPage, setCurrentPage] = useState(1);
 	const [cardsPerPage] = useState(20);
 
@@ -45,3 +45,7 @@ const Home = ({ APIKEY }) => {
 };
 
 export default Home;
+
+export async function getServerSideProps() {
+	return { props: { APIKEY: process.env.APIKEY } };
+}

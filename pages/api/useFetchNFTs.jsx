@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const useFetchNFTs = ({ APIKEY }) => {
-	console.log('client-side', process.env.APIKEY);
+	console.log('client-side prop passed', process.env.APIKEY);
 	const [NFTs, setNFTs] = useState([]);
 
 	const fetchNFTs = async () => {
@@ -27,13 +27,5 @@ const useFetchNFTs = ({ APIKEY }) => {
 
 	return NFTs;
 };
-
-export async function getServerSideProps() {
-	return {
-		props: {
-			APIKEY: process.env.APIKEY,
-		},
-	};
-}
 
 export { useFetchNFTs };
