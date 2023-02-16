@@ -46,6 +46,6 @@ const Home = ({ APIKEY }) => {
 
 export default Home;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 	return { props: { APIKEY: process.env.APIKEY } };
 }

@@ -1,9 +1,11 @@
+import Link from 'next/link';
+
 const Footer = ({}) => {
 	return (
 		<footer>
-			<a href='#' className='logo'>
+			<Link href='/' className='logo'>
 				<h2>DEVILISH</h2>
-			</a>
+			</Link>
 			<a
 				href='https://github.com/professorsugoi/'
 				className='signature'

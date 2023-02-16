@@ -30,9 +30,9 @@ const Navbar = ({}) => {
 
 	return (
 		<nav ref={nav}>
-			<a href='#' className='logo'>
+			<Link href='/' className='logo'>
 				<h2>DEVILISH</h2>
-			</a>
+			</Link>
 			<div className='navLinks'>
 				<Link href='/about'>
 					<span>About</span>
