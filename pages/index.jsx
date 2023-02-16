@@ -44,4 +44,14 @@ const Home = () => {
 	);
 };
 
+export async function getStaticProps() {
+	const NFTs = useFetchNFTs();
+
+	return {
+		props: {
+			NFTsData: NFTs,
+		},
+	};
+}
+
 export default Home;
