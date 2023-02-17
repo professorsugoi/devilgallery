@@ -11,7 +11,7 @@ const Footer = () => {
 				className='signature'
 				aria-label='sugoi signature, click to visit github'
 			>
-				<img src='/comfi.svg' alt='comfi image' />
+				<img src='/comfi.webp' alt='comfi image' />
 			</a>
 		</footer>
 	);
