@@ -1,22 +1,15 @@
 import Link from 'next/link';
-
 import { gsap } from 'gsap/dist/gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-const Navbar = ({}) => {
+const Navbar = () => {
 	const nav = useRef(null);
-	const [isMounted, setIsMounted] = useState(false);
 
 	useEffect(() => {
-		setIsMounted(true);
-	}, []);
-
-	useEffect(() => {
-		if (!isMounted) return;
 		gsap.to(nav.current, {
 			y: '8vh',
 			scrollTrigger: {
@@ -26,7 +19,7 @@ const Navbar = ({}) => {
 				end: 'bottom+=100 top',
 			},
 		});
-	}, [isMounted]);
+	}, []);
 
 	return (
 		<nav ref={nav}>

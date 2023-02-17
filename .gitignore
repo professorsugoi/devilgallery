@@ -20,6 +20,7 @@
 .DS_Store
 *.pem
 index.js.test
+.stylelintrc.json
 
 # debug
 npm-debug.log*

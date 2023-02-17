@@ -3,7 +3,7 @@ import styles from '../styles/Card.module.scss';
 
 const NFTCard = ({ nft, description }) => {
 	return (
-		<div className={styles.card}>
+		<div className={styles.card} data-animated={animated}>
 			<div className={styles['card-header']}>
 				<img src={nft.media[0].gateway} alt={nft.metadata.name} />
 			</div>

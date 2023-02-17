@@ -23,10 +23,7 @@ const Pagination = ({ currentPage, setCurrentPage, pageNumbers }) => {
 						<button
 							key={index}
 							className={`btn ${currentPage === number ? 'active' : ''}`}
-							onClick={(e) => {
-								e.preventDefault();
-								setCurrentPage(number);
-							}}
+							onClick={() => setCurrentPage(number)}
 						>
 							{number}
 						</button>
@@ -38,7 +35,7 @@ const Pagination = ({ currentPage, setCurrentPage, pageNumbers }) => {
 					!pageNumbers.includes(currentPage - 3)
 				) {
 					return (
-						<button href='#' key={index} className='btn'>
+						<button key={index} className='btn'>
 							...
 						</button>
 					);
@@ -59,10 +56,7 @@ const Pagination = ({ currentPage, setCurrentPage, pageNumbers }) => {
 			<button
 				className='btn'
 				disabled={currentPage === pageNumbers.length}
-				onClick={(e) => {
-					e.preventDefault();
-					setCurrentPage(currentPage + 1);
-				}}
+				onClick={() => setCurrentPage(currentPage + 1)}
 			>
 				&raquo;
 			</button>

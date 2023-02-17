@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada&disaply=swap');
 @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&disaply=swap');
 //@import url('https://fonts.googleapis.com/css2?family=DotGothic16');
@@ -8,7 +7,7 @@ $primary: #111111;
 $secondary: #f1f1f1;
 $accent: #ff65ff;
 
-$delay: 0.3s;
+$delay: 0.5s;
 $duration: 0.4s;
 
 @keyframes fade-down {
@@ -173,7 +172,7 @@ nav {
 }
 
 footer {
-	padding: 1.5rem 7vw 1rem 7vw;
+	padding: 1.5rem 7vw 1rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;

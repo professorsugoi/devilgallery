@@ -16,11 +16,13 @@ const Home = ({ APIKEY }) => {
 		}, 2000);
 	}, []);
 
-	// const for loading animation
+	// const for loading state
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
 		//fetch data here
-		setLoading(false);
+		setTimeout(() => {
+			setLoading(false);
+		}, 2000);
 	}, []);
 
 	// const for cards pagination
@@ -38,11 +40,12 @@ const Home = ({ APIKEY }) => {
 
 	return (
 		<div id='root' className={styles.container}>
-			<div className={styles.layout}></div>
 			{loading ? (
 				<div className='loading'>
-					<p>Loading...</p>
-					<img src='/comfi.webp' />
+					<div className='loading-placeholder'>
+						<p>Loading...</p>
+						<img src='/comfi.webp' />
+					</div>
 				</div>
 			) : (
 				<>
