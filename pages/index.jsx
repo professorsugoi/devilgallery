@@ -7,8 +7,9 @@ import Pagination from '../components/pagination';
 const Home = ({ APIKEY }) => {
 	const NFTs = useFetchNFTs({ APIKEY });
 
-	//const for card hover animation delay
+	//const for card hover animation delay & loading skeleton
 	const [hoverDelay, setHoverDelay] = useState(false);
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		setTimeout(() => {
@@ -16,12 +17,10 @@ const Home = ({ APIKEY }) => {
 		}, 2000);
 	}, []);
 
-	// const for loading state
-	const [loading, setLoading] = useState(true);
+	// Data fetching logic
+	// Whendata is successfully fetched, set 'loading' to false
 	useEffect(() => {
-		setTimeout(() => {
-			setLoading(false);
-		}, 0);
+		setLoading(false);
 	}, []);
 
 	// const for cards pagination
@@ -38,39 +37,30 @@ const Home = ({ APIKEY }) => {
 	}
 
 	return (
-		<div id='root' className={styles.container}>
-			{loading ? (
-				<div className='loading'>
-					<div className='loading-placeholder'>
-						<p>Loading...</p>
-						<img src='/comfi.webp' />
+		<div id='root'>
+			<div className={styles.container}>
+				<div className={styles.cardcontainer}>
+					{currentNFTs.map((nft, index) => {
+						const description = nft.metadata.description;
+						return (
+							<NFTCard
+								key={index}
+								nft={nft}
+								description={description}
+							></NFTCard>
+						);
+					})}
+				</div>
+				<div className={styles.paginationcontainer}>
+					<div className={styles.pagination}>
+						<Pagination
+							currentPage={currentPage}
+							setCurrentPage={setCurrentPage}
+							pageNumbers={pageNumbers}
+						/>
 					</div>
 				</div>
-			) : (
-				<>
-					<div className={styles.cardcontainer}>
-						{currentNFTs.map((nft, index) => {
-							const description = nft.metadata.description;
-							return (
-								<NFTCard
-									key={index}
-									nft={nft}
-									description={description}
-								></NFTCard>
-							);
-						})}
-					</div>
-					<div className={styles.paginationcontainer}>
-						<div className={styles.pagination}>
-							<Pagination
-								currentPage={currentPage}
-								setCurrentPage={setCurrentPage}
-								pageNumbers={pageNumbers}
-							/>
-						</div>
-					</div>
-				</>
-			)}
+			</div>
 		</div>
 	);
 };
