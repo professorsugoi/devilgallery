@@ -4,12 +4,10 @@ Sugoi learns to code ヽ(・∀・)ﾉ ! :sparkles:
 
 ### TO DO
 
-- Optimize load times / clean up spaghetti
 - Fix longer text on card descriptions
+  - CMS individual pages
 - Better pagination buttons
 - Pointer-events for hover delay on cards (hook for after load ?)
-- Create variables for collections
-- Smaller commits going forward . .
 
 ---
 
