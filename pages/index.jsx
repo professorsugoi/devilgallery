@@ -19,10 +19,9 @@ const Home = ({ APIKEY }) => {
 	// const for loading state
 	const [loading, setLoading] = useState(true);
 	useEffect(() => {
-		//fetch data here
 		setTimeout(() => {
 			setLoading(false);
-		}, 2000);
+		}, 0);
 	}, []);
 
 	// const for cards pagination
